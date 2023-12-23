@@ -6,14 +6,14 @@
         <label>Notifications</label>
         <input type="checkbox" formControlName="notifications"/>
       </div>
-      <div class="settings-container">
+      <div class="setting-option">
         <label>Units:</label>
         <select formControlName="units">
           <option value="Metric">Metric</option>
           <option value="Imperial">Imperial</option>
         </select>
       </div>
-      <div class="settings-container">
+      <div class="setting-option">
         <label>Email:</label>
         <input type="email" formControlName="email" placeholder="Enter your email"/>
         <div *ngIf="settingsForm.get('email')?.errors && settingsForm.get('email')?.touched" class="error-message">
