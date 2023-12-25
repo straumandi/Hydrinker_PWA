@@ -1,3 +1,38 @@
-<div class="container">
+<form [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="settings-container">
   <h2>Profile</h2>
-</div>
+  <div class="setting-option">
+    <label>Name:</label>
+    <input type="text" formControlName="name" placeholder="Enter your name"/>
+  </div>
+
+  <div class="setting-option">
+    <label>Weight:</label>
+    <input type="number" formControlName="weight"/>
+  </div>
+
+  <div class="setting-option">
+    <label>Gender:</label>
+    <select formControlName="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="setting-option">
+    <label>Daily Goal:</label>
+    <input type="number" formControlName="dailyGoal"/>
+  </div>
+
+  <div class="setting-option">
+    <label>Age:</label>
+    <input type="number" formControlName="age"/>
+  </div>
+
+  <div class="setting-option">
+    <label>Drink Size:</label>
+    <input type="number" formControlName="drinkSize"/>
+  </div>
+
+  <button type="submit" class="save">Save</button>
+</form>
