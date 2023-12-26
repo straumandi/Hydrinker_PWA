@@ -29,4 +29,6 @@ export class HomeComponent {
     this.hydrationService.addDrink(drinkSize);
     this.drinkForm.reset();
   }
+
+
 }
