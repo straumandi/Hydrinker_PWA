@@ -3,6 +3,6 @@ export type Profile = {
   age: number;
   weight: number;
   dailyGoal: number;
-  drinkSize: number;
+  drinkSize: number | null;
   gender: string;
 };

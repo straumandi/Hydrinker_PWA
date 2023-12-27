@@ -1,38 +1,63 @@
-<form [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="settings-container">
-  <h2>Profile</h2>
-  <div class="setting-option">
-    <label>Name:</label>
-    <input type="text" formControlName="name" placeholder="Enter your name"/>
-  </div>
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="settings-container">
+      <h2>Profile</h2>
+      <mat-form-field class="setting-option" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matNativeControl formControlName="name" placeholder="Enter your name">
+        <mat-error *ngIf="profileForm.get('name')?.hasError('required')">
+          Name is required.
+        </mat-error>
+      </mat-form-field>
 
-  <div class="setting-option">
-    <label>Weight:</label>
-    <input type="number" formControlName="weight"/>
-  </div>
+      <mat-form-field class="setting-option" appearance="fill">
+        <mat-label>Weight</mat-label>
+        <input matNativeControl type="number" formControlName="weight">
+        <span matSuffix>kg</span>
+        <mat-error *ngIf="profileForm.get('weight')?.hasError('required')">
+          Weight is required.
+        </mat-error>
+      </mat-form-field>
 
-  <div class="setting-option">
-    <label>Gender:</label>
-    <select formControlName="gender">
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
+      <mat-form-field class="setting-option" appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Other">Other</mat-option>
+        </mat-select>
+        <mat-error *ngIf="profileForm.get('gender')?.hasError('required')">
+          Gender is required.
+        </mat-error>
+      </mat-form-field>
 
-  <div class="setting-option">
-    <label>Daily Goal:</label>
-    <input type="number" formControlName="dailyGoal"/>
-  </div>
+      <mat-form-field class="setting-option" appearance="fill">
+        <mat-label>Daily Goal</mat-label>
+        <input matNativeControl type="text" formControlName="dailyGoal">
+        <span matSuffix>ml</span>
+        <mat-error *ngIf="profileForm.get('dailyGoal')?.hasError('required')">
+          Daily goal is required.
+        </mat-error>
+      </mat-form-field>
 
-  <div class="setting-option">
-    <label>Age:</label>
-    <input type="number" formControlName="age"/>
-  </div>
+      <mat-form-field class="setting-option" appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matNativeControl matInput type="number" formControlName="age">
+        <mat-error *ngIf="profileForm.get('age')?.hasError('required')">
+          Age is required.
+        </mat-error>
+      </mat-form-field>
 
-  <div class="setting-option">
-    <label>Drink Size:</label>
-    <input type="number" formControlName="drinkSize"/>
-  </div>
+      <mat-form-field class="setting-option" appearance="fill">
+        <mat-label>Default Drink Size</mat-label>
+        <input matNativeControl matInput type="number" formControlName="drinkSize">
+        <span matSuffix>ml</span>
+        <mat-error *ngIf="profileForm.get('drinkSize')?.hasError('pattern')">
+          Default Drink Size must be a number.
+        </mat-error>
+      </mat-form-field>
 
-  <button type="submit" class="save">Save</button>
-</form>
+      <button mat-raised-button color="primary" type="submit" class="save">Save</button>
+    </form>
+  </mat-card-content>
+</mat-card>
