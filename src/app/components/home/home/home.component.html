@@ -1,3 +1,13 @@
 <div class="container">
   <h2>Home</h2>
+  <form [formGroup]="drinkForm" (ngSubmit)="addDrink()">
+    <label for="drinkSize">Drink Size (ml)</label>
+    <input
+      id="drinkSize"
+      type="number"
+      formControlName="drinkSize"
+      placeholder="Enter drink size"
+    />
+    <button type="submit">Add Drink</button>
+  </form>
 </div>
