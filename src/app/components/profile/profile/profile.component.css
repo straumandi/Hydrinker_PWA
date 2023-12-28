@@ -1,3 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  height: 100%;
+}
+
+mat-card {
+  max-width: 400px;
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .settings-container {
   font-family: 'Arial', sans-serif;
   border-radius: 20px;

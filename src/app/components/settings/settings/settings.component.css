@@ -1,18 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  height: 100%;
+}
+
+mat-card {
+  max-width: 400px;
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .settings-container {
   font-family: 'Arial', sans-serif;
   border-radius: 20px;
   max-width: 400px;
-  margin: auto;
-}
-
-.settings-container h2 {
-  color: #333;
-  text-align: center;
-  margin-bottom: 30px;
+  padding: 20px;
+  margin-bottom: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .setting-option {
-  color: #FFFFFF;
   background-color: #84D0FB;
   border-radius: 10px;
   padding: 10px 15px;
@@ -21,60 +44,12 @@
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.setting-option label {
-  color: #004FAB;
-}
-
-.setting-option label {
-  color: #333;
-  font-size: 16px;
-}
-
-.setting-option input[type="checkbox"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 40px;
-  height: 20px;
-  background: #ddd;
-  border-radius: 20px;
-  position: relative;
-  cursor: pointer;
-  outline: none;
-}
-
-.setting-option input[type="checkbox"]:checked {
-  background: #4cd964;
-}
-
-.setting-option input[type="checkbox"]:before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 16px;
-  height: 16px;
-  border-radius: 16px;
-  background: #fff;
-  transition: 0.3s;
-}
-
-.setting-option input[type="checkbox"]:checked:before {
-  left: 22px;
-}
-
-.setting-option select {
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-}
-
-.setting-option input[type="email"] {
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
   width: 100%;
+}
+
+mat-form-field span {
+  margin-right: 0.5em;
+  font-size: inherit;
 }
 
 .error-message {
@@ -83,8 +58,11 @@
   margin-top: 5px;
 }
 
-/* Disable save button when form is invalid */
 button.save:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+mat-slide-toggle {
+  margin-bottom: 15px;
 }
