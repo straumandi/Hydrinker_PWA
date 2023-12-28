@@ -1,8 +1,22 @@
 .mat-toolbar-bottom {
-  position: sticky;
+  position: fixed;
+  left: 0;
+  right: 0;
   bottom: 0;
-  z-index: 1000;
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.mat-toolbar-bottom button {
+  flex-grow: 1;
+  outline: none;
+  border: none;
+}
+
+.mat-toolbar-bottom mat-icon {
+  vertical-align: middle;
 }
