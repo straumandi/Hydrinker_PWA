@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HydrationService } from '../../../services/hydration-service/hydration.service';
@@ -17,6 +18,7 @@ export class HomeComponent {
   score = 0;
 
   constructor(
+    private router: Router,
     private hydrationService: HydrationService,
     private dialogService: DialogService,
     protected scoreService: ScoreService,
@@ -55,5 +57,17 @@ export class HomeComponent {
 
     const drinkSize = +profile.drinkSize;
     this.addDrink(drinkSize);
+  }
+
+  navigateToProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  navigateToSettings() {
+    this.router.navigate(['/settings']);
+  }
+
+  navigateToScore() {
+    this.router.navigate(['/score']);
   }
 }
