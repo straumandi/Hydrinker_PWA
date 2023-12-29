@@ -1,35 +1,35 @@
+<form [formGroup]="settingsForm" (ngSubmit)="saveSettings()" class="settings-container">
+  <h2>Settings</h2>
+
+  <!-- Notification Switch -->
+  <mat-slide-toggle formControlName="notifications">Notifications</mat-slide-toggle>
+
+  <!-- Email Input -->
+  <mat-form-field class="setting-option" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matNativeControl formControlName="email" placeholder="Enter your email">
+    <mat-error *ngIf="settingsForm.get('email')?.hasError('required')">
+      Email is required.
+    </mat-error>
+    <mat-error *ngIf="settingsForm.get('email')?.hasError('email')">
+      Enter a valid email.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Units Selector -->
+  <mat-form-field class="setting-option" appearance="fill">
+    <mat-label>Units</mat-label>
+    <mat-select formControlName="units">
+      <mat-option value="metric">Metric</mat-option>
+      <mat-option value="imperial">Imperial</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" class="save">Save Settings</button>
+
+
+</form>
+
 <div class="container">
-  <form [formGroup]="settingsForm" (ngSubmit)="saveSettings()" class="settings-container">
-    <h2>Settings</h2>
-
-    <!-- Notification Switch -->
-    <mat-slide-toggle formControlName="notifications">Notifications</mat-slide-toggle>
-
-    <!-- Email Input -->
-    <mat-form-field class="setting-option" appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matNativeControl formControlName="email" placeholder="Enter your email">
-      <mat-error *ngIf="settingsForm.get('email')?.hasError('required')">
-        Email is required.
-      </mat-error>
-      <mat-error *ngIf="settingsForm.get('email')?.hasError('email')">
-        Enter a valid email.
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Units Selector -->
-    <mat-form-field class="setting-option" appearance="fill">
-      <mat-label>Units</mat-label>
-      <mat-select formControlName="units">
-        <mat-option value="metric">Metric</mat-option>
-        <mat-option value="imperial">Imperial</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <div class="container">
-      <button class="seed-button" (click)="hydrationService.seedDataForPastWeek()"><img src="assets/btn_seed.PNG">
-      </button>
-    </div>
-    <button mat-raised-button color="primary" type="submit" class="save">Save Settings</button>
-  </form>
+  <button class="seed-button" (click)="hydrationService.seedDataForPastWeek()"><img src="assets/btn_seed.PNG">
+  </button>
 </div>
