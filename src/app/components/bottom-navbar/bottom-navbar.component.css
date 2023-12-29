@@ -1,39 +1,22 @@
-@import '@fortawesome/fontawesome-free/css/all.css';
-
-/* Bottom Navigation Bar */
-.bottom-navbar {
+.mat-toolbar-bottom {
   position: fixed;
-  bottom: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
-  background-color: #fff;
   display: flex;
   justify-content: space-around;
-  padding: 10px;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  text-align: center;
+  z-index: 10;
 }
 
-.bottom-navbar button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #333;
-  background-color: transparent;
+.mat-toolbar-bottom button {
+  flex-grow: 1;
+  outline: none;
   border: none;
-  padding: 5px;
-  cursor: pointer;
 }
 
-.bottom-navbar button i {
-  font-size: 24px;
-}
-
-.bottom-navbar button span {
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.bottom-navbar button.active i {
-  color: #007bff;
-  background-color: aliceblue;
+.mat-toolbar-bottom mat-icon {
+  vertical-align: middle;
 }

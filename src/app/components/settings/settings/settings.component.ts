@@ -5,17 +5,36 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { LocalStorageService } from '../../../services/local-storage/local-storage.service';
-import { Settings } from '../../../data/UserSettings';
 import {HydrationService} from "../../../services/hydration-service/hydration.service";
+import { SnackbarService } from '../../../services/snackbar-service/snackbar.service';
+
+// Import necessary modules from @angular/material
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf } from '@angular/common';
+
+// ... other necessary imports ...
 
 @Component({
-  selector: 'settings',
+  selector: 'app-settings',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [
+    // ...other imports...
+    MatSlideToggleModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    NgIf,
+    // ...rest of the imports...
+  ],
   templateUrl: './settings.component.html',
-  styleUrl: './settings.component.css',
+  styleUrls: ['./settings.component.css'],
 })
 export class SettingsComponent implements OnInit {
   settingsForm!: FormGroup;
@@ -24,26 +43,29 @@ export class SettingsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private localStorageService: LocalStorageService,
     public hydrationService: HydrationService,
+    private snackBarService: SnackbarService,
   ) {}
 
   ngOnInit() {
-    const existingSettings = this.localStorageService.getSettings();
-    const { notifications, units, email } = existingSettings || {};
+    // Initialize form with default values or from local storage
     this.settingsForm = this.formBuilder.group({
-      notifications: [
-        notifications ? notifications : true,
-        Validators.required,
-      ],
-      units: [units ? units : 'Metric', Validators.required],
-      email: [email ? email : '', Validators.email],
+      notifications: [false],
+      email: ['', [Validators.required, Validators.email]],
+      units: ['metric', Validators.required],
     });
+
+    // Load settings if they exist
+    const existingSettings = this.localStorageService.getSettings(); // Adjust method as needed
+    if (existingSettings) {
+      this.settingsForm.patchValue(existingSettings);
+    }
   }
 
-  saveUser() {
+  saveSettings() {
+    this.settingsForm.markAllAsTouched();
     if (this.settingsForm.valid) {
-      const settings: Settings = this.settingsForm.value;
-      console.log(settings);
-      this.localStorageService.saveSettings(settings);
+      this.localStorageService.saveSettings(this.settingsForm.value); // Adjust method as needed
+      this.snackBarService.showMessage('Settings saved successfully');
     }
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Settings } from '../../data/UserSettings';
+import { Profile } from '../../data/Profile';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,18 @@ export class LocalStorageService {
 
   saveSettings(settings: Settings): void {
     this.setItem('settings', JSON.stringify(settings));
+  }
+
+  saveProfile(profile: Profile): void {
+    this.setItem('profile', JSON.stringify(profile));
+  }
+
+  getProfile(): Profile | null {
+    const profile = this.getItem('profile');
+    if (profile) {
+      return JSON.parse(profile);
+    }
+    return null;
   }
 
   getSettings(): Settings | null {
