@@ -2,12 +2,12 @@
   <h2>Home</h2>
 
   <div class="container-2-buttons">
-    <button type="button" class="custom-button"><img src="assets/btn_profile.PNG" alt="Icon"/></button>
-    <button type="button" class="custom-button"><img src="assets/btn_settings.PNG" alt="Icon"/></button>
+    <button (click)="navigateToProfile()" id="profileButton" type="button" class="custom-button"><img src="assets/btn_profile.PNG" alt="Icon"/></button>
+    <button  (click)="navigateToSettings()" type="settingsButton" class="custom-button"><img src="assets/btn_settings.PNG" alt="Icon"/></button>
   </div>
 
   <div class="container-2-buttons">
-    <button type="button" class="custom-button-big">
+    <button  (click)="navigateToScore()" id="scoreButtona" type="button" class="custom-button-big">
       <img src="assets/btn_score.PNG" alt="Icon"/>
       <span class="score-btn-content"> {{ score }}% </span>
     </button>
