@@ -48,13 +48,8 @@ export class ProfileComponent implements OnInit {
         existingProfile?.weight || '',
         [Validators.required, Validators.pattern('^[0-9]+$')],
       ],
-      gender: [existingProfile?.gender || 'Male', Validators.required],
       dailyGoal: [
         existingProfile?.dailyGoal || '',
-        [Validators.required, Validators.pattern('^[0-9]+$')],
-      ],
-      age: [
-        existingProfile?.age || '',
         [Validators.required, Validators.pattern('^[0-9]+$')],
       ],
       drinkSize: [
