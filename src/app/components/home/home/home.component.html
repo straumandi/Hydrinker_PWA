@@ -6,13 +6,21 @@
     <button type="button" class="custom-button"><img src="assets/btn_settings.PNG" alt="Icon"/></button>
   </div>
 
-  <button type="button" class="custom-button-big">
-    <img src="assets/btn_score.PNG" alt="Icon"/>
-    <span class="score-btn-content"> 69% </span>
-  </button>
+  <div class="container-2-buttons">
+    <button type="button" class="custom-button-big">
+      <img src="assets/btn_score.PNG" alt="Icon"/>
+      <span class="score-btn-content"> 69% </span>
+    </button>
+  </div>
 
-  <button type="submit" class="custom-button" (click)="addDrink()"><img src="assets/btn_add_strd.PNG" alt="Icon"/>
-  </button>
-  <button type="button" (click)="openDrinkSizeDialog()">Custom</button>
+  <div class="container-2-buttons-2">
+    <button type="submit" class="custom-button" (click)="addDrink()">
+      <img src="assets/btn_add_strd.PNG" alt="Icon"/>
+    </button>
+    <button type="button" class="custom-button small" (click)="openDrinkSizeDialog()">
+      <img src="assets/btn_add_cstm.PNG" alt="Icon"/>
+    </button>
+  </div>
+
 
 </div>

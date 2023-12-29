@@ -2,10 +2,26 @@
   display: flex;
   justify-content: space-between; /* Adjust this property as needed */
   align-items: center;
-  margin: 15px;
-  padding: 10px; /* Optional: Add padding to the container */
-  width: 100%;
+  margin: 3px;
+  padding: 3px; /* Optional: Add padding to the container */
+  width: 80%;
 }
+
+.container-2-buttons-2 {
+  display: flex;
+  justify-content: space-around; /* Adjust this property as needed */
+  align-items: center;
+  margin: 3px;
+  padding: 3px; /* Optional: Add padding to the container */
+  width: 50%;
+}
+
+.custom-button.small {
+  transform: scale(0.6);
+  margin-left: -62px;
+  margin-bottom: -50px;
+}
+
 .custom-button {
   display: flex;
   align-items: center;
@@ -19,11 +35,9 @@
   transition: background-color 0.3s ease;
 }
 
-
 .custom-button img {
   width: 100px; /* Set the width of your image or icon */
   height: 100px; /* Set the height of your image or icon */
-  margin-right: 0px; /* Adjust spacing between image/icon and text */
 }
 
 .custom-button-big {
@@ -31,7 +45,8 @@
   overflow: hidden;
   background: none;
   border: none;
-  display: inline-block; /* Ensure the button takes only the necessary width */
+  display: inline-flex; /* Ensure the button takes only the necessary width */
+  cursor: pointer;
 }
 
 .custom-button-big img {
@@ -47,7 +62,6 @@
   transform: translate(-50%, -50%);
   color: #003c70; /* Text color */
   opacity: 75%;
-  font-size: 80px; /* Adjust the font size */
+  font-size: 50px; /* Adjust the font size */
   font-weight: bold; /* Adjust the font weight if needed */
-  z-index: 1; /* Place the text on top of the image */
 }
