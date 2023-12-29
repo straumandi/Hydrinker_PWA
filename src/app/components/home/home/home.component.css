@@ -1,0 +1,67 @@
+.container-2-buttons {
+  display: flex;
+  justify-content: space-between; /* Adjust this property as needed */
+  align-items: center;
+  margin: 3px;
+  padding: 3px; /* Optional: Add padding to the container */
+  width: 80%;
+}
+
+.container-2-buttons-2 {
+  display: flex;
+  justify-content: space-around; /* Adjust this property as needed */
+  align-items: center;
+  margin: 3px;
+  padding: 3px; /* Optional: Add padding to the container */
+  width: 50%;
+}
+
+.custom-button.small {
+  transform: scale(0.6);
+  margin-left: -62px;
+  margin-bottom: -50px;
+}
+
+.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* Set text color */
+  padding: 0px;
+  border: none;
+  background: #D3F7FF;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button img {
+  width: 100px; /* Set the width of your image or icon */
+  height: 100px; /* Set the height of your image or icon */
+}
+
+.custom-button-big {
+  position: relative;
+  overflow: hidden;
+  background: none;
+  border: none;
+  display: inline-flex; /* Ensure the button takes only the necessary width */
+  cursor: pointer;
+}
+
+.custom-button-big img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.score-btn-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #003c70; /* Text color */
+  opacity: 75%;
+  font-size: 50px; /* Adjust the font size */
+  font-weight: bold; /* Adjust the font weight if needed */
+}

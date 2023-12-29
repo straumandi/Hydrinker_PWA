@@ -4,19 +4,47 @@
   right: 0;
   bottom: 0;
   width: 100%;
+  background-color: #fff;
+  display: inline-flex;
+  margin: 5px;
+  justify-content: space-evenly;
+  padding: 6px;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 18px 18px;
+}
+
+.bottom-navbar button {
   display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-  text-align: center;
-  z-index: 10;
-}
-
-.mat-toolbar-bottom button {
-  flex-grow: 1;
-  outline: none;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  background-color: rgba(182, 225, 243, 0.41);
   border: none;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 0.2px rgb(50, 109, 130);
+  border-radius: 12px;
 }
 
-.mat-toolbar-bottom mat-icon {
-  vertical-align: middle;
+.bottom-navbar button i {
+  font-size: 24px;
+}
+
+.bottom-navbar button span {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/*  New Fancy Nav Bar active style  */
+.bottom-navbar button.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  background-color: #98E0FF;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: inset 1px 1px 1px 0.2px rgb(50, 109, 130);
+  border-radius: 12px;
 }
