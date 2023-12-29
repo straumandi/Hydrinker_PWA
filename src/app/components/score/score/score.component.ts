@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ScoreService} from "../../../services/score/score.service";
 
 @Component({
   selector: 'app-score',
@@ -9,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class ScoreComponent {
 
+  constructor(
+    private scoreservice: ScoreService,
+  ) {}
+
+
 }
+
