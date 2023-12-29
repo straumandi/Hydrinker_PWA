@@ -1,29 +1,29 @@
-<form [formGroup]="settingsForm" (ngSubmit)="saveUser()">
+<form [formGroup]="settingsForm" (ngSubmit)="saveSettings()">
   <div class="container">
-      <h2>Settings</h2>
-      <div class="setting-option">
-        <label>Notifications</label>
-        <input type="checkbox" formControlName="notifications"/>
-      </div>
-      <div class="setting-option">
-        <label>Units:</label>
-        <select formControlName="units">
-          <option value="Metric">Metric</option>
-          <option value="Imperial">Imperial</option>
-        </select>
-      </div>
-      <div class="setting-option">
-        <label>Email:</label>
-        <input type="email" formControlName="email" placeholder="Enter your email"/>
-        <div *ngIf="settingsForm.get('email')?.errors && settingsForm.get('email')?.touched" class="error-message">
-          <div *ngIf="settingsForm.get('email')?.errors?.['required']">
-            Email is required.
-          </div>
-          <div *ngIf="settingsForm.get('email')?.errors?.['email']">
-            Enter a valid email address.
-          </div>
+    <h2>Settings</h2>
+    <div class="setting-option">
+      <label>Notifications</label>
+      <input type="checkbox" formControlName="notifications"/>
+    </div>
+    <div class="setting-option">
+      <label>Units:</label>
+      <select formControlName="units">
+        <option value="Metric">Metric</option>
+        <option value="Imperial">Imperial</option>
+      </select>
+    </div>
+    <div class="setting-option">
+      <label>Email:</label>
+      <input type="email" formControlName="email" placeholder="Enter your email"/>
+      <div *ngIf="settingsForm.get('email')?.errors && settingsForm.get('email')?.touched" class="error-message">
+        <div *ngIf="settingsForm.get('email')?.errors?.['required']">
+          Email is required.
+        </div>
+        <div *ngIf="settingsForm.get('email')?.errors?.['email']">
+          Enter a valid email address.
         </div>
       </div>
+    </div>
     <button type="submit" class="save">Save</button>
   </div>
 </form>
