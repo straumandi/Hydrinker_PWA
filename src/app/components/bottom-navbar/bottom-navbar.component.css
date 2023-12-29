@@ -35,6 +35,7 @@
   margin-top: 5px;
 }
 
+/*  New Fancy Nav Bar active style  */
 .bottom-navbar button.active {
   display: flex;
   flex-direction: column;
