@@ -1,5 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { Observer } from 'rxjs';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { HydrationService } from '../../../services/hydration-service/hydration.service';
 import { HydrationData } from '../../../data/HydrationData';
@@ -59,19 +58,15 @@ export class HistoryComponent implements OnInit {
   }
 
   loadChartData() {
-    this.hydrationService.getLastWeekHydrationData().subscribe({
-      next: (data) => {
-        this.chartOptions.data[0].dataPoints = data.map((entry: HydrationData) => ({
-          x: new Date(entry.date), // convert entry.date to Date object
-          y: entry.amountInMillilitres,
-        }));
-        console.log('Chart data loaded:', data);
-        this.chartOptions.data[0].dataPoints.forEach((point) => point.x.setHours(0, 0, 0, 0)); // set x values to midnight
-      },
-      error: (error) => {
-        console.error('Error loading chart data:', error);
-      },
-    } as Observer<HydrationData[]>);
+    const data = this.hydrationService.getLastWeekHydrationData();
+    this.chartOptions.data[0].dataPoints = data.map((entry: HydrationData) => ({
+      x: new Date(entry.date), // convert entry.date to Date object
+      y: entry.amountInMillilitres,
+    }));
+    console.log('Chart data loaded:', data);
+    this.chartOptions.data[0].dataPoints.forEach((point) =>
+      point.x.setHours(0, 0, 0, 0),
+    ); // set x values to midnight
   }
 
   seedChartData(): void {
@@ -86,7 +81,7 @@ export class HistoryComponent implements OnInit {
       return {
         date: date,
         amountInMillilitres: Math.floor(
-          Math.random() * (3000 - 1000 + 1) + 1000
+          Math.random() * (3000 - 1000 + 1) + 1000,
         ), // random value between 1000 and 3000 ml
       };
     });

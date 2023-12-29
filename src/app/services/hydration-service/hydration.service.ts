@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { HydrationData } from '../../data/HydrationData';
+import { SnackbarService } from '../snackbar-service/snackbar.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +8,7 @@ import { HydrationData } from '../../data/HydrationData';
 export class HydrationService {
   private localStorageKey = 'hydration_data';
 
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(private snackbarService: SnackbarService) {}
 
   addDrink(drinkSize: number): void {
     const hydrationData: HydrationData = {
@@ -17,30 +16,19 @@ export class HydrationService {
       amountInMillilitres: drinkSize,
     };
 
-    const storedData = localStorage.getItem(this.localStorageKey);
-    const data = storedData ? JSON.parse(storedData) : [];
-    data.push(hydrationData);
+    this.addDrinkToLocalStorage(hydrationData);
 
-    localStorage.setItem(this.localStorageKey, JSON.stringify(data));
-
-    this.showSnackBar(`${hydrationData.amountInMillilitres} ml was tracked!`);
+    this.snackbarService.showMessage(
+      `${hydrationData.amountInMillilitres} ml was tracked!`,
+    );
     console.log(`${hydrationData.amountInMillilitres} ml was tracked!`);
   }
 
-  private showSnackBar(message: string): void {
-    this.snackBar.open(message, 'Close', {
-      duration: 2000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
-    });
-  }
-
-  getLastWeekHydrationData(): Observable<HydrationData[]> {
+  getLastWeekHydrationData(): HydrationData[] {
     const storedData = localStorage.getItem(this.localStorageKey);
     const hydrationData = storedData ? JSON.parse(storedData) : [];
 
-    const lastWeekData = this.filterLastWeekData(hydrationData);
-    return of(lastWeekData);
+    return this.filterLastWeekData(hydrationData);
   }
 
   private filterLastWeekData(data: HydrationData[]): HydrationData[] {
@@ -84,18 +72,16 @@ export class HydrationService {
     localStorage.removeItem(this.localStorageKey);
   }
 
-  getHydrationDataForDate(date: Date): Observable<HydrationData[]> {
+  getHydrationDataForDate(date: Date): HydrationData[] {
     const dayStart = this.getStartOfDay(date).getTime();
     const dayEnd = this.getEndOfDay(date).getTime();
 
     const storedData = localStorage.getItem(this.localStorageKey);
     const data = storedData ? JSON.parse(storedData) : [];
-    const filteredData = data.filter((entry: HydrationData) => {
+    return data.filter((entry: HydrationData) => {
       const entryTime = new Date(entry.date).getTime();
       return entryTime >= dayStart && entryTime <= dayEnd;
     });
-
-    return of(filteredData);
   }
 
   private getStartOfDay(date: Date): Date {
