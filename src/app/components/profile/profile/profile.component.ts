@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
-  ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { LocalStorageService } from '../../../services/local-storage/local-storage.service';
@@ -49,19 +46,21 @@ export class ProfileComponent implements OnInit {
       name: [existingProfile?.name || '', Validators.required],
       weight: [
         existingProfile?.weight || '',
-        [Validators.required, this.numberValidator()],
+        [Validators.required, Validators.pattern('^[0-9]+$')],
       ],
       gender: [existingProfile?.gender || 'Male', Validators.required],
       dailyGoal: [
         existingProfile?.dailyGoal || '',
-        [Validators.required, this.numberValidator()],
+        [Validators.required, Validators.pattern('^[0-9]+$')],
       ],
       age: [
         existingProfile?.age || '',
-        Validators.required,
-        this.numberValidator,
+        [Validators.required, Validators.pattern('^[0-9]+$')],
       ],
-      drinkSize: [existingProfile?.drinkSize || '', this.numberValidator()],
+      drinkSize: [
+        existingProfile?.drinkSize || '',
+        Validators.pattern('^[0-9]+$'),
+      ],
     });
   }
 
@@ -71,12 +70,5 @@ export class ProfileComponent implements OnInit {
       this.localStorageService.saveProfile(this.profileForm.value);
       this.snackBarService.showMessage('Profile saved successfully');
     }
-  }
-
-  numberValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const isNotNumber = /[^0-9]+/.test(control.value);
-      return isNotNumber ? { numberInvalid: true } : null;
-    };
   }
 }
