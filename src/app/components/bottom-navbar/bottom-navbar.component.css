@@ -1,4 +1,4 @@
-.mat-toolbar-bottom {
+.bottom-navbar {
   position: fixed;
   left: 0;
   right: 0;
@@ -9,7 +9,7 @@
   margin: 5px;
   justify-content: space-evenly;
   padding: 6px;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 18px 18px;
 }
 
