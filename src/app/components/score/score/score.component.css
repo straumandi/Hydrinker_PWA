@@ -1,0 +1,28 @@
+.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* Set text color */
+  padding: 0px;
+  border: none;
+  background: #D3F7FF;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button img {
+  width: 100px; /* Set the width of your image or icon */
+  height: 100px; /* Set the height of your image or icon */
+}
+
+.btn-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #003c70; /* Text color */
+  opacity: 75%;
+  font-size: 50px; /* Adjust the font size */
+  font-weight: bold; /* Adjust the font weight if needed */
+}
