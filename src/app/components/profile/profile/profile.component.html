@@ -4,7 +4,7 @@
     <mat-form-field class="setting-option" appearance="fill">
       <mat-label>Name</mat-label>
       <input matNativeControl formControlName="name" placeholder="Enter your name">
-      <mat-error *ngIf="profileForm.get('name')?.hasError('required')">
+      <mat-error *ngIf="profileForm.get('name')?.hasError('isEmpty')">
         Name is required.
       </mat-error>
     </mat-form-field>
@@ -13,8 +13,11 @@
       <mat-label>Weight</mat-label>
       <input matNativeControl type="number" formControlName="weight">
       <span matSuffix>kg</span>
-      <mat-error *ngIf="profileForm.get('weight')?.hasError('required')">
+      <mat-error *ngIf="profileForm.get('weight')?.hasError('isEmpty')">
         Weight is required.
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('weight')?.hasError('numberInvalid')">
+        Please enter a valid number for weight.
       </mat-error>
     </mat-form-field>
 
@@ -25,7 +28,7 @@
         <mat-option value="Female">Female</mat-option>
         <mat-option value="Other">Other</mat-option>
       </mat-select>
-      <mat-error *ngIf="profileForm.get('gender')?.hasError('required')">
+      <mat-error *ngIf="profileForm.get('gender')?.hasError('isEmpty')">
         Gender is required.
       </mat-error>
     </mat-form-field>
@@ -34,16 +37,22 @@
       <mat-label>Daily Goal</mat-label>
       <input matNativeControl type="text" formControlName="dailyGoal">
       <span matSuffix>ml</span>
-      <mat-error *ngIf="profileForm.get('dailyGoal')?.hasError('required')">
+      <mat-error *ngIf="profileForm.get('dailyGoal')?.hasError('isEmpty')">
         Daily goal is required.
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('dailyGoal')?.hasError('numberInvalid')">
+        Please enter a valid number for the daily goal.
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="setting-option" appearance="fill">
       <mat-label>Age</mat-label>
       <input matNativeControl matInput type="number" formControlName="age">
-      <mat-error *ngIf="profileForm.get('age')?.hasError('required')">
+      <mat-error *ngIf="profileForm.get('age')?.hasError('isEmpty')">
         Age is required.
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('age')?.hasError('numberInvalid')">
+        Please enter a valid number for the default drink size.
       </mat-error>
     </mat-form-field>
 
@@ -51,12 +60,14 @@
       <mat-label>Default Drink Size</mat-label>
       <input matNativeControl matInput type="number" formControlName="drinkSize">
       <span matSuffix>ml</span>
-      <mat-error *ngIf="profileForm.get('drinkSize')?.hasError('pattern')">
-        Default Drink Size must be a number.
+      <mat-error *ngIf="profileForm.get('drinkSize')?.hasError('isEmpty')">
+        Default Drink Size is required.
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('drinkSize')?.hasError('numberInvalid')">
+        Please enter a valid number for the default drink size.
       </mat-error>
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit" class="save">Save</button>
   </form>
-
 </div>
