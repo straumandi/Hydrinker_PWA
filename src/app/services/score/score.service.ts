@@ -25,13 +25,16 @@ export class ScoreService {
       return 0;
     }
 
-    const dailyGoal = user.dailyGoal;
+    const dailyGoal = +user.dailyGoal;
 
-    const totalAmount = hydrationDataForToday.reduce(
-      (total, entry) => total + entry.amountInMillilitres,
-      0,
-    );
+    //filter out entries that can be parsed to number
+    const totalAmount = hydrationDataForToday
+      .filter((entry) => !isNaN(+entry.amountInMillilitres))
+      .map((entry) => +entry.amountInMillilitres)
+      .reduce((total, entry) => total + entry, 0);
 
-    return (totalAmount / dailyGoal) * 100;
+    const score = (totalAmount / dailyGoal) * 100;
+    console.log('score', score);
+    return score;
   }
 }
