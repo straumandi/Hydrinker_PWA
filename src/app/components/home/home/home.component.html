@@ -2,28 +2,17 @@
   <h2>Home</h2>
 
   <div class="container-2-buttons">
-    <button type="submit" class="custom-button"><img src="assets/btn_profile.PNG" alt="Icon" /></button>
-    <button type="submit" class="custom-button"><img src="assets/btn_settings.PNG" alt="Icon" /></button>
+    <button type="button" class="custom-button"><img src="assets/btn_profile.PNG" alt="Icon"/></button>
+    <button type="button" class="custom-button"><img src="assets/btn_settings.PNG" alt="Icon"/></button>
   </div>
 
- <button class="custom-button-big">
-   <img src="assets/btn_score.PNG" alt="Icon" />
-   <span class="score-btn-content"> 69% </span>
- </button>
+  <button type="button" class="custom-button-big">
+    <img src="assets/btn_score.PNG" alt="Icon"/>
+    <span class="score-btn-content"> 69% </span>
+  </button>
 
-
-
-
-  <form [formGroup]="drinkForm" (ngSubmit)="addDrink()">
-    <label for="drinkSize">Drink Size (ml)</label>
-    <input
-      id="drinkSize"
-      type="number"
-      formControlName="drinkSize"
-      placeholder="Enter drink size"
-    />
-    <button type="submit" class="custom-button" (click)="addDrink()"><img src="assets/btn_add_strd.PNG" alt="Icon" /></button>
-  </form>
+  <button type="submit" class="custom-button" (click)="addDrink()"><img src="assets/btn_add_strd.PNG" alt="Icon"/>
+  </button>
 
 
 </div>
