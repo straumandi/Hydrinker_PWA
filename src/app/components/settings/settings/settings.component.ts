@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { LocalStorageService } from '../../../services/local-storage/local-storage.service';
 import { Settings } from '../../../data/UserSettings';
+import {HydrationService} from "../../../services/hydration-service/hydration.service";
 
 @Component({
   selector: 'settings',
@@ -22,6 +23,7 @@ export class SettingsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private localStorageService: LocalStorageService,
+    public hydrationService: HydrationService,
   ) {}
 
   ngOnInit() {
