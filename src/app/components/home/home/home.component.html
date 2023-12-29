@@ -1,14 +1,26 @@
 <div class="container">
   <h2>Home</h2>
-  <form [formGroup]="drinkForm" (ngSubmit)="addDrink()">
-    <label for="drinkSize">Drink Size (ml)</label>
-    <input
-      id="drinkSize"
-      type="number"
-      formControlName="drinkSize"
-      placeholder="Enter drink size"
-    />
-    <button type="submit">Add Drink</button>
-    <button type="button" (click)="openDrinkSizeDialog()">Custom</button>
-  </form>
+
+  <div class="container-2-buttons">
+    <button type="button" class="custom-button"><img src="assets/btn_profile.PNG" alt="Icon"/></button>
+    <button type="button" class="custom-button"><img src="assets/btn_settings.PNG" alt="Icon"/></button>
+  </div>
+
+  <div class="container-2-buttons">
+    <button type="button" class="custom-button-big">
+      <img src="assets/btn_score.PNG" alt="Icon"/>
+      <span class="score-btn-content"> 69% </span>
+    </button>
+  </div>
+
+  <div class="container-2-buttons-2">
+    <button type="submit" class="custom-button" (click)="addDrink()">
+      <img src="assets/btn_add_strd.PNG" alt="Icon"/>
+    </button>
+    <button type="button" class="custom-button small" (click)="openDrinkSizeDialog()">
+      <img src="assets/btn_add_cstm.PNG" alt="Icon"/>
+    </button>
+  </div>
+
+
 </div>

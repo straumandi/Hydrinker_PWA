@@ -14,6 +14,7 @@ import {
 } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-drink-size-dialog',
@@ -26,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatDialogActions,
     MatButtonModule,
     MatDialogClose,
+    NgIf,
   ],
   templateUrl: './drink-size-dialog.component.html',
   styleUrl: './drink-size-dialog.component.css',
