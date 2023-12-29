@@ -1,3 +1,21 @@
 mat-slide-toggle {
   margin-bottom: 10px;
 }
+
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.container button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: auto;
+}
+
+.container img{
+  width: 50%;
+}

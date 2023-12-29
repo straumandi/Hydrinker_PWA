@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { LocalStorageService } from '../../../services/local-storage/local-storage.service';
+import {HydrationService} from "../../../services/hydration-service/hydration.service";
 import { SnackbarService } from '../../../services/snackbar-service/snackbar.service';
 
 // Import necessary modules from @angular/material
@@ -41,6 +42,7 @@ export class SettingsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private localStorageService: LocalStorageService,
+    public hydrationService: HydrationService,
     private snackBarService: SnackbarService,
   ) {}
 

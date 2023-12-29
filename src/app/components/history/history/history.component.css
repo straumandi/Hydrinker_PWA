@@ -4,6 +4,17 @@
   padding: 15px;
 }
 
+.container button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: auto;
+}
+
+.container img{
+width: 50%;
+}
+
 @media only screen and (max-width: 767px) {
   .container {
     padding: 10px;
