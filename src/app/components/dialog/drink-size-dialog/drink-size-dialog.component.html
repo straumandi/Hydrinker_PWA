@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Choose Your Drink Size</h1>
+<div mat-dialog-content>
+  <p>Please enter your drink size</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Drink Size</mat-label>
+      <input matInput formControlName="drinkSize">
+      <mat-error *ngIf="form.controls['drinkSize'].hasError('required')">
+        Drink Size is required
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">Cancel</button>
+  <button mat-button color="primary" [disabled]="!form.valid" (click)="onSubmit()">Ok</button>
+</div>
